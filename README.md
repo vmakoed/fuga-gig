@@ -45,7 +45,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/vmakoe
 ## TODO
 
 - [ ] Core
-  - [ ] Github API client
+  - [x] Github API client
   - [ ] API results parser
   - [ ] File downloader
   - [ ] CLI
@@ -58,3 +58,4 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/vmakoe
   - [ ] Avoid reading whole file into memory
 - [ ] Nice to have
    - [ ] Progress bar
+   - [ ] Documentation

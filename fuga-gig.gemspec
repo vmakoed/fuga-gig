@@ -26,4 +26,8 @@ Gem::Specification.new do |spec|
   spec.bindir        = 'bin'
   spec.executables   = spec.files.grep(%r{\Abin/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
+
+  spec.add_development_dependency 'rspec', '~> 3.10.0'
+  spec.add_development_dependency 'vcr', '~> 6.0'
+  spec.add_development_dependency 'webmock', '~> 3.13'
 end
