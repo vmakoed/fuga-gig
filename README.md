@@ -55,7 +55,8 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/vmakoe
   - [ ] Pagination handling
   - [ ] Download once (skip downloading same image)
 - [ ] Performance
-  - [ ] Avoid reading whole file into memory
+  - [ ] Avoid reading whole image file into memory
+  - [ ] Ensure stored file is closed in case of exception
 - [ ] Nice to have
    - [ ] Progress bar
    - [ ] Documentation
