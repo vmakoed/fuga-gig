@@ -1,8 +1,7 @@
 # Fuga::Gig
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/fuga/gig`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A command line tool using the public Github API to download and save avatar
+images from repository owners matching the provided search criteria.
 
 ## Installation
 
@@ -22,7 +21,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Downloading images:
+
+```bash
+bin/gig topic:ruby topic:rails
+```
+
+Viewing images:
+```bash
+ls topic:ruby-topic:rails/
+```
 
 ## Development
 
@@ -32,4 +40,21 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/fuga-gig.
+Bug reports and pull requests are welcome on GitHub at https://github.com/vmakoed/fuga-gig.
+
+## TODO
+
+- [ ] Core
+  - [ ] Github API client
+  - [ ] API results parser
+  - [ ] File downloader
+  - [ ] CLI
+- [ ] Edge cases
+  - [ ] Rate limit
+  - [ ] Error handling (connection errors)
+  - [ ] Pagination handling
+  - [ ] Download once (skip downloading same image)
+- [ ] Performance
+  - [ ] Avoid reading whole file into memory
+- [ ] Nice to have
+   - [ ] Progress bar
