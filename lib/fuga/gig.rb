@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "gig/version"
+require_relative 'gig/version'
 
 module Fuga
   module Gig
