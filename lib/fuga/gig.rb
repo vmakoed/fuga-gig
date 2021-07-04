@@ -3,6 +3,7 @@
 require_relative 'gig/version'
 
 require_relative 'gig/github_api_client/search'
+require_relative 'gig/repositories/avatars_parser'
 
 module Fuga
   module Gig

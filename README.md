@@ -46,7 +46,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/vmakoe
 
 - [ ] Core
   - [x] Github API client
-  - [ ] API results parser
+  - [x] API results parser
   - [ ] File downloader
   - [ ] CLI
 - [ ] Edge cases
