@@ -27,6 +27,8 @@ module Fuga
       def run
         create_directory
         download
+      rescue StandardError => e
+        Logger.error(e.message)
       end
 
       private

@@ -39,6 +39,9 @@ module Fuga
         def get(url)
           response = Net::HTTP.get(url, HEADERS)
           JSON.parse(response, symbolize_names: true)
+        rescue SocketError => e
+          Logger.error('Could not connect to Github API. Please check your internet connection.')
+          raise(e)
         end
       end
     end

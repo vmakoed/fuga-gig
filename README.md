@@ -51,7 +51,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/vmakoe
   - [x] CLI
 - [ ] Edge cases
   - [ ] Rate limit
-  - [ ] Error handling (connection errors)
+  - [x] Error handling (connection errors)
   - [ ] Pagination handling
   - [ ] Download once (skip downloading same image)
 - [ ] Performance
