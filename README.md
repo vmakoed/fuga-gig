@@ -44,11 +44,11 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/vmakoe
 
 ## TODO
 
-- [ ] Core
+- [x] Core
   - [x] Github API client
   - [x] API results parser
-  - [ ] File downloader
-  - [ ] CLI
+  - [x] File downloader
+  - [x] CLI
 - [ ] Edge cases
   - [ ] Rate limit
   - [ ] Error handling (connection errors)
