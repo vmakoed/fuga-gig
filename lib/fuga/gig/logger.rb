@@ -23,7 +23,11 @@ module Fuga
       end
 
       def logger
-        @logger ||= ::Logger.new($stdout)
+        @logger ||= ::Logger.new(log_device)
+      end
+
+      def log_device
+        @log_device ||= $stdout
       end
     end
   end

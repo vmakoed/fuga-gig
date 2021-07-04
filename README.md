@@ -50,7 +50,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/vmakoe
   - [x] File downloader
   - [x] CLI
 - [ ] Edge cases
-  - [ ] Rate limit
+  - [x] Rate limit
   - [x] Error handling (connection errors)
   - [ ] Pagination handling
   - [ ] Download once (skip downloading same image)
@@ -60,3 +60,4 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/vmakoe
 - [ ] Nice to have
    - [ ] Progress bar
    - [ ] Documentation
+   - [ ] Spec coverage check

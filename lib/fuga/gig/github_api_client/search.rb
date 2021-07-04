@@ -3,6 +3,8 @@
 require 'net/http'
 require 'json'
 
+require_relative 'http/response'
+
 module Fuga
   module Gig
     module GithubAPIClient
@@ -37,8 +39,10 @@ module Fuga
         end
 
         def get(url)
-          response = Net::HTTP.get(url, HEADERS)
-          JSON.parse(response, symbolize_names: true)
+          Net::HTTP
+            .get_response(url, HEADERS)
+            .then { |response| GithubAPIClient::HTTP::Response.for(response) }
+            .body
         rescue SocketError => e
           Logger.error('Could not connect to Github API. Please check your internet connection.')
           raise(e)

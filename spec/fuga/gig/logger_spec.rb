@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 
 require 'fuga/gig'
+require 'log_setup'
 
 describe Fuga::Gig::Logger do
-  describe '.error' do
-    it 'outputs error to stdout' do
+  describe '.error', :logger do
+    it 'outputs error' do
       expect { described_class.error('message') }
-        .to(
-          output(a_string_including('message')).to_stdout
-        )
+        .to(change { log_output }.from('').to(a_string_including('message')))
     end
   end
 end
