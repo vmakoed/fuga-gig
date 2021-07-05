@@ -12,24 +12,31 @@ module Fuga
           @local_directory = local_directory
         end
 
-        def store
-          file = File.open("#{local_directory}/#{filename}", 'w')
-          file.write(response.body)
-          file.close
+        def persist
+          @file = File.open("#{local_directory}/#{basename}.#{extension}", 'w')
+          @file.write(response.body)
+          true
+        rescue StandardError => e
+          Logger.warn("Failed to store a remote file locally. Error: #{e.message}")
+          false
+        ensure
+          @file&.close
+        end
+
+        def persisted?
+          Dir
+            .entries(local_directory)
+            .any? { |file| file.match(/#{basename}\./) }
         end
 
         private
-
-        def filename
-          @filename ||= "#{basename}.#{extension}"
-        end
 
         def response
           @response ||= Net::HTTP.get_response(uri)
         end
 
         def basename
-          uri.path.split('/').last
+          @basename ||= uri.path.split('/').last
         end
 
         def extension

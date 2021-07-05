@@ -53,11 +53,12 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/vmakoe
   - [x] Rate limit
   - [x] Error handling (connection errors)
   - [ ] Pagination handling
-  - [ ] Download once (skip downloading same image)
+  - [x] Download once (skip downloading same image)
 - [ ] Performance
   - [ ] Avoid reading whole image file into memory
-  - [ ] Ensure stored file is closed in case of exception
+  - [x] Ensure stored file is closed in case of exception
 - [ ] Nice to have
    - [ ] Progress bar
    - [ ] Documentation
    - [ ] Spec coverage check
+   - [ ] Remove file from directory if repository has been removed

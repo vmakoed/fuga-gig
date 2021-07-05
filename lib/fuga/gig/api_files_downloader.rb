@@ -42,7 +42,8 @@ module Fuga
           .repositories(query_parameters)
           .then { |response| parser.parse(response) }
           .then { |file_urls| file_urls.map(&method(:url_to_remote_file)) }
-          .then { |remote_files| remote_files.each(&:store) }
+          .then { |remote_files| remote_files.reject(&:persisted?) }
+          .then { |remote_files| remote_files.each(&:persist) }
       end
 
       def url_to_remote_file(url)

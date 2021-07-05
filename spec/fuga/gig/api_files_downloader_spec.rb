@@ -9,7 +9,7 @@ describe Fuga::Gig::APIFilesDownloader do
     let(:remote_file_wrapper) { class_double Fuga::Gig::Repositories::RemoteAvatarFile }
 
     let(:repositories) { instance_double JSON }
-    let(:remote_file) { instance_spy Fuga::Gig::Repositories::RemoteAvatarFile }
+    let(:remote_file) { instance_spy Fuga::Gig::Repositories::RemoteAvatarFile, persisted?: persisted }
 
     before do
       allow(search_client).to(
@@ -30,8 +30,6 @@ describe Fuga::Gig::APIFilesDownloader do
           .and_return(remote_file)
       )
 
-      allow(remote_file).to receive(:store)
-
       described_class.run(
         query_parameters: %w[topic:ruby topic:rails],
         search_client: search_client,
@@ -40,8 +38,20 @@ describe Fuga::Gig::APIFilesDownloader do
       )
     end
 
-    it 'stores the remote file' do
-      expect(remote_file).to have_received(:store)
+    context 'when file does not exist in local storage' do
+      let(:persisted) { false }
+
+      it 'stores the remote file' do
+        expect(remote_file).to have_received(:persist)
+      end
+    end
+
+    context 'when file exists in local storage' do
+      let(:persisted) { true }
+
+      it 'stores the remote file' do
+        expect(remote_file).not_to have_received(:persist)
+      end
     end
   end
 end
